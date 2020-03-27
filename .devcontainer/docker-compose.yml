@@ -6,9 +6,6 @@ services:
     hostname: zoo1
     ports:
       - 2181:2181
-    # environment:
-    #   ZOO_MY_ID: 1
-    #   ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
   kafka:
     image: wurstmeister/kafka
     ports:
@@ -25,6 +22,6 @@ services:
     environment:
       KAFKA_SERVER_CONNECT: kafka:9092
     volumes:
-          - ..:/app:cached
+      - ..:/app:cached
     # Overrides default command so things don't shut down after the process ends.
     command: /bin/sh -c "while sleep 1000; do :; done"  
