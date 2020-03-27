@@ -1,4 +1,5 @@
 kafka
+librdkafka-1.3.0
 config
 log
 build
