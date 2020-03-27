@@ -3,7 +3,7 @@
 # Based on https://github.com/ashutoshkumr/vscode-cpp-dev-env
 #-------------------------------------------------------------------------------------------------------------
 
-FROM olned/kafka
+FROM olned/librdkafka
 
 WORKDIR /app
 
@@ -21,9 +21,7 @@ RUN apt-get update \
     # Install build-essential cmake
     && apt-get -y install build-essential cmake \
     # Install C++ tools
-    && apt-get -y install cppcheck valgrind gdb \
-    # Install librdkafka
-    && apt-get -y install librdkafka-dev
+    && apt-get -y install cppcheck valgrind gdb
 
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
 RUN groupadd --gid $USER_GID $USERNAME \
